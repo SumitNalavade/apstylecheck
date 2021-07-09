@@ -32,8 +32,10 @@
         </div>
 
         <div class="text-input">
-            <form>
-                <textarea rows="5" cols="60" name="description" placeholder="Enter text here..."></textarea>
+            <form action="/send" method="POST">
+                <textarea rows="5" cols="60" name="description" placeholder="Enter text here..." name="usertext"></textarea>
+
+                <button>Check Grammer and Styling</button>
             </form>
         </div>
     </main>

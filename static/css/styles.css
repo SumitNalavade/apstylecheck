@@ -1,6 +1,8 @@
-:root {
-    --bg-color: #fff5f6;
-    --main-color: #ff0a54;
+html {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(#00b4d8 0%, #0077b6);
 }
 
 nav {
@@ -8,14 +10,12 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    background-color: #ff477e;
+    background-color: #0077b6;
     color: white;
 }
 
 body {
     margin: 0;
-
-    background-color: var(--bg-color);
 
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ body {
 }
 
 .intro-container {
-    color: var(--main-color);
+    color: white;
     text-align: center;
 }
 
@@ -34,7 +34,8 @@ body {
 
 .text-input {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     margin: 5em 0em;
 }
@@ -42,14 +43,30 @@ body {
 form {
     width: 70vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 textarea {
-    border: 3px solid var(--main-color);
+    border: 3px solid blue;
     border-radius: 20px;
 
     width: 100%;
 
     text-align: center;
+}
+
+button {
+    width: auto;
+    padding: 0.75em 2em;
+
+    background-color: green;
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    margin: 0.5em 1em;
+
+    font-size: 1.25em;
 }
