@@ -1,0 +1,55 @@
+:root {
+    --bg-color: #fff5f6;
+    --main-color: #ff0a54;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #ff477e;
+    color: white;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--bg-color);
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.intro-container {
+    color: var(--main-color);
+    text-align: center;
+}
+
+.brand-name {
+    font-size: 4.5em;
+}
+
+.text-input {
+    display: flex;
+    justify-content: center;
+
+    margin: 5em 0em;
+}
+
+form {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    border: 3px solid var(--main-color);
+    border-radius: 20px;
+
+    width: 100%;
+
+    text-align: center;
+}
