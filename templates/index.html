@@ -16,29 +16,34 @@
 
 <body>
     <nav>
-        <div class="logo-container">
-            <h2>Fs</h2>
+        <div class="navbar-logo-container">
+            <a><img src="/static/FreeStylelogo.png" id="logo"></a>
         </div>
-        <div class="links-container">
-            <a>Documentation</a>
-            <a>GitHub</a>
+
+        <div class="navbar-links-container">
+            <a class="navbar-link">Documentation</a>
+            <a class="navbar-link">GitHub</a>
         </div>
     </nav>
 
-    <main>
-        <div class="intro-container">
-            <h1 class="brand-name">FreeStyle</h1>
-            <h2>Check text for grammer and AP style in seconds!</h2>
-        </div>
 
-        <div class="text-input">
+
+    <main>
+        <section class="greeting">
+            <h1 class="mainHeader">Free<span>Style</span></h1>
+            <h2 class="subHeader">Check Grammer and AP Style for Free!</h2>
+        </section>
+
+        <section class="mainSection">
             <form action="/send" method="POST">
-                <textarea rows="5" cols="60" name="description" placeholder="Enter text here..." name="usertext"></textarea>
+                <textarea rows="5" cols="60" name="usertext" placeholder="Enter text here..."
+                    name="usertext"></textarea>
 
                 <button>Check Grammer and Styling</button>
             </form>
-        </div>
+        </section>
     </main>
+
 </body>
 
 </html>
