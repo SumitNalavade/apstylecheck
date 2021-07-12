@@ -11,15 +11,6 @@ app = Flask(__name__)
 def home_page():
     return render_template("index.html")
 
-
-@app.route('/send', methods=['POST'])
-def send():
-    if(request.method == 'POST'):
-        userText = request.form['usertext']
-
-        grammerCorrections = {}
-
-        for i in parser.parse(userText)["corrections"]:
-            grammerCorrections[i["text"]] = i["correct"]
-
-        return(render_template('index.html', grammerCorrections=grammerCorrections))
+@app.route("/documentation")
+def docs_page():
+    return render_template("documentation.html")
