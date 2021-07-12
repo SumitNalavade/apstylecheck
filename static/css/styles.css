@@ -133,14 +133,6 @@ button:hover {
     color: #f91754;
 }
 
-#docsHeader {
-    font-size: 6em;
-}
-
-#accuracyImg {
-    width: 60%;
-}
-
 @media (max-width: 1650px) {
     .firstMain {
         flex-direction: column;
