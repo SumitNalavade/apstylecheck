@@ -1,11 +1,18 @@
+html {
+    height: 100vh;
+}
+
 body {
     margin: 0;
 
     font-family: 'Montserrat', sans-serif;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
-    width: 100vw;
     display: flex;
     justify-content: space-between;
 
@@ -42,6 +49,9 @@ a:hover {
 main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    flex-grow: 1;
 }
 
 main div {
@@ -60,14 +70,15 @@ main div {
     align-items: center;
 
     color: #2b2b2b;
+
+    max-width: 95%;
 }
 
 .mainHeader {
     font-size: 10em;
 
     margin: 1em 0em;
-    margin-bottom: 0.25em;
-
+    margin-bottom: 0.15em;
 }
 
 span {
@@ -76,6 +87,7 @@ span {
 
 .mainSection {
     align-self: flex-end;
+    text-align: center;
 }
 
 form {
@@ -125,10 +137,55 @@ button:hover {
     font-size: 6em;
 }
 
-#audienceImg {
+#accuracyImg {
     width: 60%;
-    margin-left: 10%;
+}
 
-    margin-top: 10%;
+@media (max-width: 1650px) {
+    .firstMain {
+        flex-direction: column;
+        justify-content: space-evenly;
 
+        margin-bottom: 0;
+
+        flex-grow: 1;
+    }
+
+    .mainHeader {
+        margin-top: 0;
+    }
+
+    .mainSection {
+        align-self: center;
+    }
+}
+
+@media (max-width: 920px) {
+    .greeting {
+        font-size: 70%;
+    }
+
+    textarea {
+        width: 98%;
+    }
+}
+
+@media (max-width: 600px) {
+    .greeting {
+        font-size: 60%;
+    }
+
+    textarea {
+        width: 95%;
+    }
+}
+
+@media (max-width: 510px) {
+    .greeting {
+        font-size: 48%;
+    }
+
+    textarea {
+        width: 90%;
+    }
 }
