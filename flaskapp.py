@@ -10,3 +10,7 @@ app = Flask(__name__)
 @app.route("/")
 def home_page():
     return render_template("index.html")
+
+@app.route("/docs")
+def docs_page():
+    return render_template("docs.html")

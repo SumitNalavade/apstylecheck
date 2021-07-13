@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>FreeStyle - AP Style & Grammar Check</title>
+    <meta name="description" content="Free online AP Style Checker and Grammar checker">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar-logo-container">
+            <a href="/home"><img src="/static/FreeStylelogo.png" id="logo"></a>
+        </div>
+
+        <div class="navbar-links-container">
+            <a class="navbar-link" href="/docs" target="_blank">Docs</a>
+            <a class="navbar-link" href="https://github.com/SumitNalavade/apstylecheck" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="firstMain">
+            <section class="greeting">
+                <h1 class="mainHeader" id="docs-mainHeader">Write with <span>Accuracy</span></h1>
+                <h2 class="subHeader">FreeStyle uses the latest <span>AP styling</span> guidelines</h2>
+            </section>
+        </div>
+
+        <div class="style-rules-container">
+            <div class="style-rules">
+                <details>
+                    <summary>Numbers To Start Sentences</summary> <br>
+                    When using a number to start a sentence, the number should be written in word instead of using
+                    figures <br>
+                    <b><span>*The only exception to the rule is when you are writing a year*</span></b> <br><br>
+                    Example: <br>
+                    <span>Two hundred</span> freshmen filled the auditorium for the assembly. <br>
+                    <span>1776</span> is the year the Declaration of Independence was signed
+                </details>
+                <details>
+                    <summary>Age</summary>
+                </details>
+                <details>
+                    <summary>Details</summary>
+                    Something small enough to escape casual notice.
+                </details>
+            </div>
+
+            <div class="style-rules">
+                <details>
+                    <summary>General Numbers</summary> <br>
+                    When using a number <span>spell out</span> the word for numerals <span>zero through nine</span>:<br>
+                    When talking about numbers that are <span>10 and above, use digits</span> <br>
+                    When numbers are <span>one hundred and above</span> use words <br> <br>
+
+                    Example: <br>
+                    There are only <span>five</span> questions on the quiz.<br>
+                    There are <span>20</span> people enrolled in the class. <br>
+                    The game is expected to attract over <span>two thousand</span> tourists in Victory Plaza.
+                </details>
+                <details>
+                    <summary>Details</summary>
+                    Something small enough to escape casual notice.
+                </details>
+                <details>
+                    <summary>Details</summary>
+                    Something small enough to escape casual notice.
+                </details>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
