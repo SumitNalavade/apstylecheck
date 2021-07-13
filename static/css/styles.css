@@ -107,6 +107,8 @@ textarea {
     height: 15em;
 
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+    outline: none;
 }
 
 button {
@@ -159,6 +161,12 @@ details {
     border-radius: 25px;
 
     padding: 1em;
+
+    margin: 1em 0em;
+}
+
+#docs-subHeader {
+    margin-bottom: 5em;
 }
 
 @media (max-width: 1650px) {
@@ -185,8 +193,16 @@ details {
         font-size: 70%;
     }
 
+    .style-rules {
+        width: 70%;
+    }
+
     textarea {
         width: 98%;
+    }
+
+    .style-rules-container {
+        flex-direction: column;
     }
 }
 
@@ -198,6 +214,7 @@ details {
     textarea {
         width: 95%;
     }
+
 }
 
 @media (max-width: 510px) {
