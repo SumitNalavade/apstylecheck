@@ -42,6 +42,25 @@
                 </form>
             </section>
         </div>
+
+        {%if usertext%}
+        <div class="response-container">
+            <div class="response-text-container">
+                <h3 class="response-header">Original Text</h3>
+                <p>{{usertext}}</p>
+            </div>
+
+
+            <div class="response-text-container">
+                <h3 class="response-header">Corrections</h3>
+                {% for correction in (grammarCorrections) %}
+                <p>{{correction}}</p>
+                {%endfor%}
+            </div>
+
+        </div>
+        {%endif%}
+
     </main>
 
 </body>

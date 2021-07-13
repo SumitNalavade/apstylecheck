@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from gingerit.gingerit import GingerIt
 
-parser = GingerIt()
+grammarParser = GingerIt()
 
 app = Flask(__name__)
 
@@ -14,3 +14,15 @@ def home_page():
 @app.route("/docs")
 def docs_page():
     return render_template("docs.html")
+
+@app.route('/send', methods=['POST'])
+def send():
+    if(request.method == 'POST'):
+        usertext = request.form['usertext']
+
+        grammarCorrections = []
+
+        for i in grammarParser.parse(usertext)["corrections"]:
+            grammarCorrections.append(i["correct"])
+
+        return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections)
