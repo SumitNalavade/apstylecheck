@@ -11,18 +11,20 @@ app = Flask(__name__)
 def home_page():
     return render_template("index.html")
 
+
 @app.route("/docs")
 def docs_page():
     return render_template("docs.html")
+
 
 @app.route('/send', methods=['POST'])
 def send():
     if(request.method == 'POST'):
         usertext = request.form['usertext']
 
-        grammarCorrections = []
+        grammarCorrections = {}
 
         for i in grammarParser.parse(usertext)["corrections"]:
-            grammarCorrections.append(i["correct"])
+            grammarCorrections[i["text"]] = i["correct"]
 
         return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections)

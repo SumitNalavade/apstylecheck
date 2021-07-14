@@ -82,6 +82,7 @@ main div {
 
 span {
     color:#f91754;
+
 }
 
 .mainSection {
@@ -164,6 +165,10 @@ details {
     margin: 1em 0em;
 }
 
+details:hover {
+    cursor: pointer;
+}
+
 #docs-subHeader {
     margin-bottom: 5em;
 }
@@ -183,6 +188,7 @@ details {
 
     min-width: 50em;
 
+    padding: 1em;
 }
 
 .response-header {
@@ -190,10 +196,19 @@ details {
     color: #f91754; 
 }
 
-p {
+.response-text {
     max-width: 50em;
+
+    display: inline-block;
 }
 
+.non-correct {
+    color: black;
+}
+
+svg {
+    width: 5em;
+}
 @media (max-width: 1650px) {
     .firstMain {
         flex-direction: column;
@@ -239,6 +254,10 @@ p {
 
     .style-rules-container {
         flex-direction: column;
+    }
+
+    .response-text-container {
+        min-width: 90vw;
     }
 }
 
