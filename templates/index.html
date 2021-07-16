@@ -48,13 +48,7 @@
             <div class="response-text-container">
                 <h3 class="response-header">Original Text</h3>
                 <div>
-                    {%for i in usertext.split(" ")%}
-                    {%if i in grammarCorrections.keys()%}
-                    <span class="response-text"><b>{{i}} <span> </span></b></span>
-                    {%else%}
-                    <span class="response-text non-correct">{{i}}<span> </span>
-                        {%endif%}
-                        {%endfor%}
+                    <span class="response-text non-correct">{{usertext}}<span> </span>
                 </div>
             </div>
 
@@ -68,6 +62,15 @@
                                 d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                         </svg></span> {{correction}}</p>
                 {%endfor%}
+
+                {% for original,correction in (styleCorrections.items()) %}
+                <p class="response-text">{{original}} {%if original != ""%} {%if original != " "%}<span><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg></span>{%endif%} {%endif%} {{correction}}</p>
+                {%endfor%}
+
             </div>
 
         </div>

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from gingerit.gingerit import GingerIt
+import apstylecheck
 
 grammarParser = GingerIt()
 
@@ -23,8 +24,9 @@ def send():
         usertext = request.form['usertext']
 
         grammarCorrections = {}
+        styleCorrections = apstylecheck.main(usertext)
 
         for i in grammarParser.parse(usertext)["corrections"]:
             grammarCorrections[i["text"]] = i["correct"]
 
-        return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections)
+        return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections, styleCorrections=styleCorrections)

@@ -1,80 +1,82 @@
 from word2number import w2n
 from num2words import num2words
-from nameparser import HumanName
+
+def validate_wordisnum(text):
+    try:
+        w2n.word_to_num(text)
+    except ValueError:
+        return False
+    else:
+        if(text.isnumeric() == True):
+            return False
+        else:
+            return True
 
 corrections = {}
 
-def check_School(text):
-    textArr = text.split(" ")
+def main(text):
+    corrections.clear()
+    sentences = text.lower().split(".")
 
-    if("school" in textArr or "School" in textArr):
-        corrections[""] = "Make sure first letter of each word in school name is capitalized"
+    for j in sentences:
+        j = j.replace("-", " ")
+        textArr = j.lower().split(" ")
+        if(textArr[0] == ""):
+            textArr.pop(0)
 
+        print(textArr)
 
-def check_Company(text):
-    textArr = text.split(" ")
+        #Warn to check all company and social media names
+        corrections[""] = "Make sure all company/social media names are lowercase"
 
-    for i in textArr:
-        if(i == "IOS" or i == "Iphone" or i == "Ipad" or i == "Imac"):
-            corrections[i] = i.lower()
-    corrections[" "] = "Make sure company/social media names are uppercase"
+        for i in textArr:
+            if("," in i):
+                textArr[textArr.index(i)] = i.replace(",", "")
 
+        for i in textArr:
+            try:
+                if(i.isnumeric() == True and textArr.index(i) == 0):
+                    corrections[i] = num2words(i)
+                elif(validate_wordisnum(i) == True and textArr.index(i) == 0):
+                    textArr.pop(textArr.index(i) + 1)
+                elif(i.isnumeric() == True and (textArr[textArr.index(i) + 1] != "years" and textArr[textArr.index(i) + 1] != "year")):
+                    if(int(i) in range (0,10) or (int(i) >= 100)):
+                        if(textArr[textArr.index(i) + 1] != "percent"):
+                            corrections[i] = num2words(i)
+                elif(validate_wordisnum(i) == True and (textArr[textArr.index(i) + 1] != "years" and textArr[textArr.index(i) + 1] != "year")):
+                        if(w2n.word_to_num(i) in range(10,100)):
+                            corrections[i] = w2n.word_to_num(i)
+            except IndexError:
+                pass
 
-def check_its(text):
-    textArr = text.split(" ")
+        for i in textArr:
+            #Warn schools should be capitalized
+            if("school" in i):
+                corrections[" "] = "Make sure first letter of each word in school name is capitalized"
+            
+            if(i == "its" or i == "it’s" or i == "it's"): #Check for proper use of it's
+                corrections[i] = f"check for proper use of {i}"
 
-    for i in textArr:
-        if(i == "its" or i == "it's"):
-            corrections[i] = f"check for proper use of {i}"
+            if("effect" in i or "affect" in i): #Check for proper use of effect/affect
+                corrections[i] = f"check for proper use of {i}"
 
+            seasons = ["winter", "spring", "summer", "fall"] #Check seasons capitalization
+            if(i in seasons):
+                corrections[i] = "Check for proper capitalizations of seasons. Seasons should not be capitalized unless used in a title"
 
-def check_Effect(text):
-    textArr = text.split(" ")
-
-    for i in textArr:
-        if(("effect") in i or ("affect") in i):
-            corrections[i] = f"check for proper use of {i}"
-
-
-def check_Titles(text):
-    textArr = text.split(" ")
-
-    for i in textArr:
-        i = HumanName(i).as_dict()
-
-        if(i["title"] != ""):
-            corrections[i["title"]
-                        ] = "check for proper capitalization of title"
-
-
-def check_Seasons(text):
-    textArr = text.split(" ")
-
-    seasons = ["Winter", "Spring", "Summer", "Fall", "Autumn"]
-
-    for i in textArr:
-        if(i in seasons):
-            corrections[i] = "Check for proper capitalization. Seasons should only be capitalized if used in a title"
-
-
-def check_Percentage(text):
-    textArr = text.split(" ")
-
-    for i in textArr:
-        if("%" in i):
-            corrections[i] = "% should be spelled out (percent)"
-
-    for i in textArr:
-        if((i.isnumeric() == True and textArr.index(i) == 0) and textArr[textArr.index(i) + 1] == "percent"):
-            corrections[i] = "should be spelled out"
-        else:
+            if("%" in i):
+                corrections[i] = "% should be spelled out (percent)" #The symbol should never exist
+            
             try:
                 w2n.word_to_num(i)
             except ValueError:
                 pass
             else:
-                if(textArr.index(i) != 0 and i.isnumeric() == False):
-                    corrections[i] = "should be a numeric number"
+                if((textArr.index(i) != 0 and i.isnumeric() == False) and textArr[textArr.index(i) + 1] == "percent"):
+                    corrections[i] = w2n.word_to_num(i) #Percentage numbers should always be figures
 
-# Remember to remove special charachters from string
-# Add check_Nums method
+            titles = ["senior","junior","sophomore","freshman","freshmen","principal","principle"]
+            if(i in titles):
+                corrections[i] = "check for correct capitalization of title"
+                        
+    return corrections
