@@ -14,17 +14,15 @@ def validate_wordisnum(text):
 
 corrections = {}
 
-def main(text):
+def check(text):
     corrections.clear()
     sentences = text.lower().split(".")
 
     for j in sentences:
-        j = j.replace("-", " ")
+        j = j.replace("-", " ").replace("!","").replace("?","").replace(";","")
         textArr = j.lower().split(" ")
         if(textArr[0] == ""):
             textArr.pop(0)
-
-        print(textArr)
 
         #Warn to check all company and social media names
         corrections[""] = "Make sure all company/social media names are lowercase"
@@ -66,7 +64,7 @@ def main(text):
 
             if("%" in i):
                 corrections[i] = "% should be spelled out (percent)" #The symbol should never exist
-            
+                
             try:
                 w2n.word_to_num(i)
             except ValueError:

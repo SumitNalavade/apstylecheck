@@ -23,10 +23,18 @@ def send():
     if(request.method == 'POST'):
         usertext = request.form['usertext']
 
-        grammarCorrections = {}
-        styleCorrections = apstylecheck.main(usertext)
+        grammarCorrections = apstylecheck.check(usertext)
 
-        for i in grammarParser.parse(usertext)["corrections"]:
-            grammarCorrections[i["text"]] = i["correct"]
+        try:
+            for i in grammarParser.parse(usertext)["corrections"]:
+                grammarCorrections[i["text"]] = i["correct"]
+        except KeyError:
+            sentences = usertext.split(".")
 
-        return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections, styleCorrections=styleCorrections)
+            for i in sentences:
+                for j in grammarParser.parse(i)["corrections"]:
+                    grammarCorrections[j["text"]] = j["correct"]
+
+        print(grammarCorrections.keys())
+
+        return render_template("index.html", usertext=usertext, grammarCorrections=grammarCorrections)

@@ -189,6 +189,8 @@ details:hover {
     min-width: 50em;
 
     padding: 1em;
+
+    margin: 0em 1em;
 }
 
 .response-header {
