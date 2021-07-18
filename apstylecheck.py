@@ -41,7 +41,7 @@ def check(text):
                     if(int(i) in range (0,10) or (int(i) >= 100)):
                         if(textArr[textArr.index(i) + 1] != "percent"):
                             corrections[i] = num2words(i)
-                elif(validate_wordisnum(i) == True and (textArr[textArr.index(i) + 1] != "years" and textArr[textArr.index(i) + 1] != "year")):
+                elif(validate_wordisnum(i) == True and (textArr[textArr.index(i) + 1] == "years" or textArr[textArr.index(i) + 1] == "year")):
                         if(w2n.word_to_num(i) in range(10,100)):
                             corrections[i] = w2n.word_to_num(i)
             except IndexError:
@@ -64,7 +64,7 @@ def check(text):
 
             if("%" in i):
                 corrections[i] = "% should be spelled out (percent)" #The symbol should never exist
-                
+
             try:
                 w2n.word_to_num(i)
             except ValueError:
