@@ -1,0 +1,5 @@
+Flask
+gingerit
+word2number
+num2words
+gunicorn
