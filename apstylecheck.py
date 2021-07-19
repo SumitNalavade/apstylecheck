@@ -25,7 +25,7 @@ def check(text):
             textArr.pop(0)
 
         #Warn to check all company and social media names
-        corrections[""] = "Make sure all company/social media names are lowercase"
+        corrections[""] = "Make sure all company/social media names are capitalized"
 
         for i in textArr:
             if("," in i):
