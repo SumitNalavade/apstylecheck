@@ -37,7 +37,7 @@ def check(text):
                     corrections[i] = num2words(i)
                 elif(validate_wordisnum(i) == True and textArr.index(i) == 0):
                     textArr.pop(textArr.index(i) + 1)
-                elif(i.isnumeric() == True and (textArr[textArr.index(i) + 1] != "years" and textArr[textArr.index(i) + 1] != "year")):
+                elif(i.isnumeric() == True and (textArr[textArr.index(i) + 1] != "years" or textArr[textArr.index(i) + 1] != "year")):
                     if(int(i) in range (0,10) or (int(i) >= 100)):
                         if(textArr[textArr.index(i) + 1] != "percent"):
                             corrections[i] = num2words(i)
