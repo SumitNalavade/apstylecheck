@@ -44,3 +44,7 @@ flask run
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+![](https://github.com/SumitNalavade/apstylecheck/blob/master/Screen%20Shot%202021-09-08%20at%203.12.56%20AM.png)
+![](https://github.com/SumitNalavade/apstylecheck/blob/master/Screen%20Shot%202021-09-08%20at%203.14.35%20AM.png)
+![](https://github.com/SumitNalavade/apstylecheck/blob/master/Screen%20Shot%202021-09-08%20at%203.13.18%20AM.png)
