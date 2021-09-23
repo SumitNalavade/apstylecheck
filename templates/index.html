@@ -47,19 +47,15 @@
         <div class="response-container">
             <div class="response-text-container">
                 <h3 class="response-header">Original Text</h3>
-                <div id = "userTextContainer">
-                    {%for i in usertext.split(" ")%}
-                       <span>{{i + "."}}</span>
-                    {%endfor%}
-
-
+                <div id="userTextContainer">
+                    {{usertext}}
                 </div>
             </div>
 
             <div class="response-text-container">
                 <h3 class="response-header">Corrections</h3>
                 {% for original,correction in (grammarCorrections.items()) %}
-                <p class="response-text">{{original}} {%if original != ""%} {%if original != " "%}<span><svg
+                <p class="response-text">{{correction.initial}} {%if original != ""%} {%if original != " "%}<span><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"

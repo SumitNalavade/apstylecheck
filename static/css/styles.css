@@ -211,6 +211,7 @@ details:hover {
 svg {
     width: 5em;
 }
+
 @media (max-width: 1650px) {
     .firstMain {
         flex-direction: column;

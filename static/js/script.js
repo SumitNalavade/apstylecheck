@@ -4,3 +4,4 @@ function reset() {
 
 let logo = document.querySelector("#logo")
 logo.addEventListener("click", (evt) => reset());
+
