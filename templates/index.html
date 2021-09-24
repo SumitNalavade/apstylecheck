@@ -48,7 +48,15 @@
             <div class="response-text-container">
                 <h3 class="response-header">Original Text</h3>
                 <div id="userTextContainer">
-                    {{usertext}}
+                    {%for i in usertext.split(" ")%}
+                    {%if i in grammarCorrections.keys()%}
+                    <span>{{i}}</span>
+
+                    {%else%}
+
+                    {{i}}
+                    {%endif%}
+                    {%endfor%}
                 </div>
             </div>
 
