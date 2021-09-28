@@ -25,15 +25,23 @@ def send():
 
         grammarCorrections = apstylecheck.check(usertext)
 
+        class correction:
+            def __init__(self, initial, fixed, index):
+                self.initial = initial
+                self.fixed = fixed
+                self.index = index
+
         try:
             for i in grammarParser.parse(usertext)["corrections"]:
-                grammarCorrections[i["text"]] = i["correct"]
+                newCorrection = correction(i["text"], i["correct"], 0)
+                grammarCorrections[newCorrection.initial] = newCorrection
         except KeyError:
             sentences = usertext.split(".")
 
             for i in sentences:
                 for j in grammarParser.parse(i)["corrections"]:
-                    grammarCorrections[j["text"]] = j["correct"]
+                    newCorrection = correction(j["text"], j["correct"], 0)
+                    grammarCorrections[newCorrection.initial] = newCorrection
 
         print(grammarCorrections.keys())
 
